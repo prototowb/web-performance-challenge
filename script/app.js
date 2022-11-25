@@ -5,44 +5,10 @@ const CONTENT_ARTICLE_TEASERS = [
   "This is an article about third party that happened this weekend" ];
 
 const acceptCookies = () => {
-  document.body.classList.remove('no-scroll');
   document.querySelector('.cookieLayer__base').classList.add('cookieLayer__base--accepted');
 };
 
-const dynamicContent = () => {
-  const teasers = document.querySelectorAll('.teaser__text');
-  const marqueeBar = document.querySelector('marquee');
+const marqueeBar = document.querySelector('marquee');
 
-  // mock content delay
-  setTimeout(() => marqueeBar.innerHTML = CONTENT_BREAKING_NEWS, 3000);
-
-  // create dynamic content
-  teasers.forEach((teaser, index) => {
-    teaser.innerHTML = CONTENT_ARTICLE_TEASERS[index];
-  });
-};
-
-const layoutThrashing = (n) => {
-  for (let i = 0; i < n; i++) {
-    const container = document.querySelector('header');
-    console.log(container.clientTop);
-  }
-};
-
-const JSblocking = () => {
-  let n = 1000000;
-  while (n) { n--;}
-}
-
-const initApp = () => {
-  const lazyLoadInstance = new LazyLoad();
-  
-  layoutThrashing(20);
-  dynamicContent();
-  setTimeout(() => console.log('Hello World!'), 3000);
-  JSblocking();
-  cookieLayerInit();
-  lazyLoadInstance.update();
-};
-
-initApp();
+// mock content delay
+setTimeout(() => marqueeBar.innerHTML = CONTENT_BREAKING_NEWS);
